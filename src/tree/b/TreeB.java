@@ -6,7 +6,6 @@
 package tree.b;
 
 import Interface.Tree;
-import Test.Car;
 import java.util.ArrayList;
 
 /**
@@ -155,7 +154,6 @@ public class TreeB<Index, T> implements Tree<Index, T> {
     public T search(Index index) {
         
         Node<Index, T> node = this.findElement(index, this.root);
-        System.out.println(((Car)node.getDad().getObject()).getValue());
         if(node == null){
             return null;
         }
@@ -252,13 +250,13 @@ public class TreeB<Index, T> implements Tree<Index, T> {
                         
             switch (type) {
                 case 1:
-                    this.PreOrderSearch(0, this.root,vector);
+                    this.PreOrderSearch(this.root,vector);
                     break;
                 case 2:
-                    this.PosOrderSearch(0, this.root,vector);
+                    this.PosOrderSearch(this.root,vector);
                     break;
                 case 3:
-                    this.InOrderSearch(0, this.root,vector);
+                    this.InOrderSearch(this.root,vector);
                     break;
             }
 
@@ -267,44 +265,44 @@ public class TreeB<Index, T> implements Tree<Index, T> {
         return vector;
     }
     
-    private void PreOrderSearch(int indexVector, Node<Index, T> node,ArrayList<T> vector) {
+    private void PreOrderSearch(Node<Index, T> node,ArrayList<T> vector) {
 
         vector.add(node.getObject());
 
         if (node.getSonLeft() != null) {
-            this.PreOrderSearch(indexVector++, node.getSonLeft(),vector);
+            this.PreOrderSearch(node.getSonLeft(),vector);
         }
 
         if (node.getSonRight() != null) {
-            this.PreOrderSearch(indexVector++, node.getSonRight(),vector);
+            this.PreOrderSearch(node.getSonRight(),vector);
         }
 
     }
 
-    private void PosOrderSearch(int indexVector, Node<Index, T> node,ArrayList<T> vector) {
+    private void PosOrderSearch(Node<Index, T> node,ArrayList<T> vector) {
 
         if (node.getSonLeft() != null) {
-            this.PosOrderSearch(indexVector++, node.getSonLeft(),vector);
+            this.PosOrderSearch(node.getSonLeft(),vector);
         }
 
         if (node.getSonRight() != null) {
-            this.PosOrderSearch(indexVector++, node.getSonRight(),vector);
+            this.PosOrderSearch(node.getSonRight(),vector);
         }
 
         vector.add(node.getObject());
 
     }
 
-    private void InOrderSearch(int indexVector, Node<Index, T> node,ArrayList<T> vector) {
+    private void InOrderSearch(Node<Index, T> node,ArrayList<T> vector) {
 
         if (node.getSonLeft() != null) {
-            this.InOrderSearch(indexVector++, node.getSonLeft(),vector);
+            this.InOrderSearch(node.getSonLeft(),vector);
         }
 
         vector.add(node.getObject());
 
         if (node.getSonRight() != null) {
-            this.InOrderSearch(indexVector++, node.getSonRight(),vector);
+            this.InOrderSearch(node.getSonRight(),vector);
         }
 
     }
