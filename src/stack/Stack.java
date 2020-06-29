@@ -6,13 +6,13 @@
 package stack;
 
 import List.LinkedList;
-import Interface.BasEspecialist;
+import Interface.BaseEspecialist;
 
 /**
  *
  * @author wynne
  */
-public class Stack<T> implements BasEspecialist<T> {
+public class Stack<T> implements BaseEspecialist<T> {
 
     private LinkedList<T> list = LinkedList.instance();
     private static Stack structe = new Stack();
@@ -53,12 +53,12 @@ public class Stack<T> implements BasEspecialist<T> {
 
     @Override
     public int index(T object) {
-        return this.index(object);
+        return this.list.index(object);
     }
 
     @Override
     public boolean toClear() {
-        return toClear();
+        return this.list.toClear();
     }
     
 }

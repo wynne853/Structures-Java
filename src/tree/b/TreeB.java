@@ -174,9 +174,13 @@ public class TreeB<Index, T> implements Tree<Index, T> {
     @Override
     public T replace(Index index, T newObject) {
         Node<Index, T> node = this.findElement(index, this.root);
-        T object = node.getObject();
-        node.setObject(newObject);
-
+        T object = null;
+        
+        if(node != null){
+            object = node.getObject();
+            node.setObject(newObject);
+        }
+        
         return object;
     }
 

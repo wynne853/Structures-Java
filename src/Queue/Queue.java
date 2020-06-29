@@ -6,12 +6,12 @@
 package Queue;
 
 import List.LinkedList;
-import Interface.BasEspecialist;
+import Interface.BaseEspecialist;
 /**
  *
  * @author wynne
  */
-public class Queue<T> implements BasEspecialist<T>{
+public class Queue<T> implements BaseEspecialist<T>{
 
     private LinkedList<T> list = LinkedList.instance();
     private static Queue structe = new Queue();
@@ -52,12 +52,12 @@ public class Queue<T> implements BasEspecialist<T>{
 
     @Override
     public int index(T object) {
-        return this.index(object);
+        return this.list.index(object);
     }
 
     @Override
     public boolean toClear() {
-        return toClear();
+        return this.list.toClear();
     }
 
 }

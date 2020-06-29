@@ -9,7 +9,7 @@ package Interface;
  *
  * @author wynne
  */
-public interface BasEspecialist<T> {
+public interface BaseEspecialist<T> {
     
     public boolean add(T object);
     public T delete();
