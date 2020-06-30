@@ -61,7 +61,6 @@ public class TreeGeneric<Index, T> implements Tree<Index, T> {
                     ArrayList<T> vector = new ArrayList<>();
                     PreOrderSearch(node,vector);
                     this.lenght -= (vector.size() - 1);
-                    System.out.println(vector.size());
                 }
             }
             return node.getObject();
